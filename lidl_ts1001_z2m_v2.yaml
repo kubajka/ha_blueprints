@@ -5,7 +5,7 @@ blueprint:
   input:
     remote:
       name: Pilot TS1001 (Z2M)
-      description: Wybierz encję action z z2m teraz:
+      description: Wybierz encję action z z2m teraz
       selector:
         entity:
           domain:
