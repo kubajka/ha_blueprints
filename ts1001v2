@@ -1,0 +1,35 @@
+blueprint:
+  name: "Naprawiony Pilot Livarno TS1001"
+  description: "Wersja z szerokim selektorem dla Zigbee2MQTT"
+  domain: automation
+  input:
+    remote:
+      name: Pilot
+      description: Wybierz swoje urządzenie (SW SALON table)
+      selector:
+        device:
+          integration: mqtt
+          model: TS1001 # To musi pasować do Twojego zdjęcia
+    light_target:
+      name: Światło
+      selector:
+        target:
+          entity:
+            domain: light
+
+trigger:
+  - platform: device
+    domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: "on" # Przycisk POWER na górze
+    id: "wlacz"
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: "wlacz"
+        sequence:
+          - service: light.toggle
+            target: !input light_target
