@@ -1,11 +1,11 @@
 blueprint:
   name: Lidl TS1001 – Zigbee2MQTT Remote
-  description: Obsługa pilota Lidl / Silvercrest TS1001 przez Zigbee2MQTT
+  description: Obsługa pilota Lidl TS1001 przez Zigbee2MQTT v2
   domain: automation
   input:
     remote:
       name: Pilot TS1001 (Z2M)
-      description: Wybierz encję action z Zigbee2MQTT
+      description: Wybierz encję action z z2m teraz:
       selector:
         entity:
           domain:
@@ -91,7 +91,7 @@ blueprint:
       default: []
       selector:
         action: {}
-  source_url: https://github.com/kubajka/ha_blueprints/blob/main/lidl_ts1001_z2m.yaml
+  source_url: https://github.com/kubajka/ha_blueprints/blob/main/lidl_ts1001_z2m_v2.yaml
 mode: single
 trigger:
   - platform: state
